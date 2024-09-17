@@ -1,0 +1,29 @@
+<%- include('header.ejs') %>
+<div class="page">
+    <div class="create-posts">
+        <h1>Create new post</h1>
+        <form action="/create" method="post">
+            <label for="title" id="title-input-tag">Title:</label><br>
+            <input type="text" id="title-post" name="title" value="<%= posts.title %>"><br>
+            <label for="content" id="content-input-tag">Post content:</label><br>
+            <input type="text" id="content" name="content" value="<%= posts.content %>"><br>
+            <button type="submit" formmethod="post">Post</button>
+        </form>
+    </div>
+    <div class="recent-posts">
+        <h1 class="recent-posts-caption">Recent Posts</h1><br>
+        <% if (posts.length === 0 ) { %>
+            <h2 class="post-title">Nothing here bro. Come again later</h2>
+        <% } else { %>
+            <ul>
+                <% posts.forEach(Post => { %>
+                    <li>
+                        <h2 class="post-title"><%= Post.title %></h2>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } %>
+        
+    </div>
+</div>
+<%- include('footer.ejs') %>

@@ -1,0 +1,33 @@
+<%- include('header.ejs') %>
+<div class="page">
+    <div class="display-posts">
+        <% if (posts.length === 0) { %>
+            <h1 class="post-title">Nothing available here</h1>
+        <% } else { %>
+            <ul>
+            <% posts.forEach(Post => { %>
+                <li>
+                    <h1 class="post-title"><a href="view/<%-posts.indexOf(Post)%>"><%= Post.title %></a></h1>
+                    <p class="post-content"><%= Post.content %></p>
+                    <p class="post-date"><%= Post.date %></p>
+                </li>
+            <% }); %>
+            </ul>
+        <% } %>
+    </div>
+    <div class="recent-posts">
+        <h1 class="recent-posts-caption">Recent Posts</h1><br>
+        <% if (posts.length === 0 ) { %>
+            <h2 class="post-title">Nothing here bro. Come again later</h1>
+            <% } else { %>
+            <ul>
+                <% posts.forEach(Post => { %>
+                    <li>
+                        <h2 class="post-title"><%= Post.title %></h2>
+                    </li>
+                <% }); %>
+            </ul>
+            <% } %>
+    </div>
+</div>
+<%- include('footer.ejs') %>

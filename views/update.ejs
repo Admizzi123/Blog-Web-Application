@@ -1,0 +1,13 @@
+<%- include('header.ejs') %>
+    <div class="update-posts">
+        <h1 id="update-post-title">Update Post</h1>
+        <form action="/update" method="post" class="update-post-template">
+            <input type="hidden" name="id" value="<%= postId %>">
+            <label for="title" id="update-title-label">Update title:</label><br>
+            <input type="text" name="title" value="<%= title %>"><br>
+            <label for="content" id="update-content-label">Update content:</label><br>
+            <input type="text" name="content" value="<%= content %>"><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+<%- include('footer.ejs') %>
